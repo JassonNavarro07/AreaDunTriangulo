@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AreaDunTriangulo.MainPage"
+             xmlns:ViewModel="clr-namespace:AreaDunTriangulo.ViewModels">
+
+    <ContentPage.BindingContext>
+        <ViewModel:AreaViewModel/>
+    </ContentPage.BindingContext>
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+
+            <Label
+                Text="Area de un triangulo"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1" />
+
+            <Entry Text="{Binding Lado1}" 
+                   Placeholder="Ingresa el lado 1" 
+                   Keyboard="Numeric" />
+            <Entry Text="{Binding Lado2}" 
+                   Placeholder="Ingresa el lado 2" 
+                   Keyboard="Numeric" />
+            <Entry Text="{Binding Lado3}" 
+                   Placeholder="Ingresa el lado3" 
+                   Keyboard="Numeric" />
+            <Label Text="{Binding Resultado}" 
+                   FontSize="24" 
+                   HorizontalOptions="Center" />
+
+            <Button
+                x:Name="CounterBtn"
+                Text="Calcular" 
+                Command="{Binding CalcularAreaCommand}"
+                SemanticProperties.Hint="Counts the number of times you click"
+                HorizontalOptions="Fill" />
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
